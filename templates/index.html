@@ -1,0 +1,40 @@
+<html>
+    <head>
+        <link rel="stylesheet" type= "text/css" href= "{{ url_for('static',filename='mainpage.css') }}">
+        <script>
+            function submitForm() {
+   
+                var frm = document.getElementsByName('contact-form')[0];
+                frm.submit(); // Submit
+                frm.reset();  // Reset
+                return false; // Prevent page refresh
+}
+        </script>
+    </head>
+    <body>
+        <div class="center">
+            <h1>Email Service</h1>
+            <form action='/' method="POST" id="contact-form">
+              <div class="inputbox">
+                <input type="email" name="mail" required="required">
+                <span>Email</span>
+              </div>
+              <div class="inputbox">
+                <input type="text" name="message" required="required">
+                <span>Message</span>
+              </div>
+              <div class="inputbox">
+                <button class="button" type="submit" value="submit">Send Mail</button>
+              </div>
+            </form>
+              <div class = "center">
+            {% if check=="1" %} 
+                  <p id="paraq">Hey {{id}} ! </br>Please check you mailbox, </br>I've sent you a surprise.</p>
+              {% elif check=="0" %}
+                  <p>Mail id daal yaar, aur sahi se daal.</p>
+              {% else %}
+              {% endif %}
+          </div>
+          </div>
+    </body>
+</html>
